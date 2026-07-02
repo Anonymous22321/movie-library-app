@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:clean_architecture_and_solid_principles/movie%20app/core/utilizes/constance.dart';
 import 'package:clean_architecture_and_solid_principles/movie%20app/movies/domain/entities/genres.dart';

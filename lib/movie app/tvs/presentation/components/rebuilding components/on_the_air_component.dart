@@ -35,7 +35,6 @@ class OnTheAirComponent extends GetView<TvController> {
         );
       }
       else{
-        print("OnTheAirComponent");
         return FadeIn(
           duration: const Duration(milliseconds: 500),
           child: CarouselSlider(
@@ -48,7 +47,6 @@ class OnTheAirComponent extends GetView<TvController> {
               return GestureDetector(
                 key: const Key('openMovieMinimalDetail'),
                 onTap: () async{
-                  /// TODO : NAVIGATE TO TV DETAILS`
                   controller.fetchTvDetails(item.tvId);
                  Get.to(()=> TvDetailScreen());
                 },

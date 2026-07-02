@@ -40,10 +40,14 @@ class TvController extends GetxController {
 
 
   var selectedSeasonIndex = 0.obs;
+  var selectedTab = 0.obs;
 
   // Method to update the index when a user selects a new season
   void changeSeason(int index) {
     selectedSeasonIndex.value = index;
+  }
+  void changeTab(int index) {
+    selectedTab.value = index;
   }
 
   TvController({

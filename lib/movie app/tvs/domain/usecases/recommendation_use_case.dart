@@ -4,9 +4,7 @@ import 'package:clean_architecture_and_solid_principles/movie%20app/tvs/domain/r
 import 'package:clean_architecture_and_solid_principles/movie%20app/tvs/domain/usecases/base_tv.dart';
 import 'package:dartz/dartz.dart';
 
-import '../../../movies/domain/entities/recommendation.dart';
 import '../../../movies/domain/usecases/base.dart';
-import '../../data/repository/tv_repository.dart';
 
 class GetTvRecommendationsUseCase
     implements

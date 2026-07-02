@@ -35,7 +35,6 @@ class NowPlayingComponent extends GetView<MovieController> {
         );
       }
       else{
-        print("NowPlayingComponent");
         return FadeIn(
           duration: const Duration(milliseconds: 500),
           child: CarouselSlider(
@@ -48,15 +47,12 @@ class NowPlayingComponent extends GetView<MovieController> {
               return GestureDetector(
                 key: const Key('openMovieMinimalDetail'),
                 onTap: () {
-                  /// TODO : NAVIGATE TO MOVIE DETAILS
 
                   controller.fetchMovieDetails(item.movieId);
                   Get.to(()=> MovieDetailScreen());
-                  // Get.to(()=> MovieDetails());
                 },
                 child: Stack(
                   children: [
-                    // make shadow for images
                     ShaderMask(
                       shaderCallback: (rect) {
                         return const LinearGradient(
