@@ -36,6 +36,7 @@ class MovieController extends GetxController {
   // State for holding a single movie details item
   // (Rxn represents a nullable observable)
   Rxn<MovieDetail> movieDetails = Rxn<MovieDetail>();
+  RxInt currentScreen = 0.obs;
 
   /// error
   final RxnString error = RxnString();
@@ -52,7 +53,9 @@ class MovieController extends GetxController {
     fetchPopularMovies();
     fetchTopRatedMovies();
   }
-
+void changeScreen(int index) {
+    currentScreen.value = index;
+}
 
 
   Future<void> fetchNowPlayingMovies() async {

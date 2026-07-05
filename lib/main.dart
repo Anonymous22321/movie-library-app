@@ -1,3 +1,4 @@
+import 'package:clean_architecture_and_solid_principles/movie%20app/control_view.dart';
 import 'package:clean_architecture_and_solid_principles/movie%20app/core/services/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.grey.shade900,
       ),
       initialBinding: InitialBinding(),
-      home: const TvScreen(),
+      home: const ControlView(),
     );
   }
 }
