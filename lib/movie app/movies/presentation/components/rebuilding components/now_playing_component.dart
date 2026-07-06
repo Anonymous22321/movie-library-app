@@ -27,7 +27,7 @@ class NowPlayingComponent extends GetView<MovieController> {
           height: 400.0,
           child: Center(
             child: Text(
-              "Something went wrong ${controller.error.value}",
+              "Something went wrong: ${controller.errorOccurred()}",
               maxLines: 3,
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),

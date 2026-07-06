@@ -114,17 +114,18 @@ void changeScreen(int index) {
     _isLoading.value = false;
   }
 
-  // Add this helper getter inside your Movie entity or Model
-  // String get formattedRuntime {
-  //   if (runtime == null || runtime == 0) return 'N/A';
-  //
-  //   final int hours = runtime! ~/ 60; // Get the number of full hours
-  //   final int minutes = runtime! % 60; // Get the remaining minutes
-  //
-  //   if (hours > 0) {
-  //     return '${hours}h ${minutes}m'; // Example: "2h 22m"
-  //   } else {
-  //     return '${minutes}m'; // Example: "45m" (for short films/episodes)
-  //   }
-  // }
+  String? errorOccurred() {
+    if(error.value != null){
+      if(error.value!.contains("Invalid API")){
+        return "Unauthorized request";
+      }
+      if(error.value!.contains("not be found")){
+        return "Movie not found";
+      }
+      else {
+        return error.value!;
+      }
+    }
+    return null;
+  }
 }

@@ -35,7 +35,6 @@ class MovieDetailContent extends GetView<MovieController> {
           ),
         );
       }
-      final error = controller.error.value;
       final MovieDetail movie = controller.movieDetails.value!;
 
       return CustomScrollView(
@@ -72,6 +71,9 @@ class MovieDetailContent extends GetView<MovieController> {
                     width: Get.width,
                     imageUrl: imageUrl(movie.backdropPath),
                     fit: BoxFit.cover,
+                    errorWidget: (context, url, error) {
+                      return const Icon(Icons.error,color: Colors.red,size: 28,);
+                    },
                   ),
                 ),
               ),

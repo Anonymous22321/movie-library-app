@@ -27,7 +27,7 @@ class OnTheAirComponent extends GetView<TvController> {
           height: 400.0,
           child: Center(
             child: Text(
-              "Something went wrong ${controller.errorMessage.value}",
+              "Something went wrong ${controller.errorMessage}",
               maxLines: 3,
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),

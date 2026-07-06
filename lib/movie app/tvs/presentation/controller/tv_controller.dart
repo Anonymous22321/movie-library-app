@@ -136,4 +136,20 @@ class TvController extends GetxController {
     }
     _isLoading.value = false;
   }
+
+  String? errorOccurred() {
+    if(errorMessage.value != null){
+      if(errorMessage.value!.contains("Invalid API")){
+        return "Unauthorized request";
+      }
+      if(errorMessage.value!.contains("not be found")){
+        return "TV not found";
+      }
+      else {
+        return errorMessage.value!;
+      }
+    }
+    return null;
+  }
+
 }

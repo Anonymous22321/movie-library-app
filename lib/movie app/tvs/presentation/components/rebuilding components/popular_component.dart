@@ -22,7 +22,7 @@ class TvPopularComponent extends GetView<TvController> {
           height: 170.0,
           child: Center(
             child: Text(
-              "Something went wrong ${controller.errorMessage.value}",
+              "Something went wrong ${controller.errorOccurred()}",
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),
           ),
@@ -45,7 +45,6 @@ class TvPopularComponent extends GetView<TvController> {
                   padding: const EdgeInsets.only(right: 8.0),
                   child: InkWell(
                     onTap: () async{
-                      /// TODO : NAVIGATE TO  MOVIE DETAILS
                       controller.fetchTvDetails(controller.popularTvList[index].tvId);
                       Get.to(()=> TvDetailScreen());
                     },

@@ -26,8 +26,6 @@ class MovieDetailContent extends GetView<TvController> {
           child: CircularProgressIndicator(color: Colors.redAccent),
         );
       }
-      /// TODO: Error Widget Handling
-      final error = controller.errorMessage.value;
       return CustomScrollView(
         key: const Key('tvDetailScrollView'),
         slivers: [

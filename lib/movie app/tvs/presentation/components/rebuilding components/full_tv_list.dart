@@ -15,7 +15,18 @@ class FullTvList extends GetView<TvController> {
 
   @override
   Widget build(BuildContext context) {
-    return SliverList.separated(
+    if(controller.errorMessage.value!=null){
+      return SliverToBoxAdapter(
+        child: Center(
+          child: Text(
+            "Something went wrong ${controller.errorOccurred()}",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        ),
+      );
+    }
+    else {
+      return SliverList.separated(
       itemCount: tvList.length,
       itemBuilder: (context, index) {
         final tv = tvList[index];
@@ -138,5 +149,6 @@ class FullTvList extends GetView<TvController> {
       },
       separatorBuilder: (context, index) => SizedBox(height: 12.0),
     );
+    }
   }
 }

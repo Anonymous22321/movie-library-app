@@ -15,7 +15,30 @@ class FullMovieList extends GetView<MovieController> {
 
   @override
   Widget build(BuildContext context) {
-    return SliverList.separated(
+    if(controller.isLoading.value){
+      return SliverToBoxAdapter(
+        child: Center(
+          child: SizedBox(
+            height: 170.0,
+            child: CircularProgressIndicator(color: Colors.redAccent,),
+          ),
+        ),
+      );
+    }
+
+    if(controller.error.value != null){
+      return SliverToBoxAdapter(
+        child: Center(
+          child: Text(
+            "Something went wrong ${controller.errorOccurred()}",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        ),
+      );
+    }
+    
+    else {
+      return SliverList.separated(
       itemCount: movieList.length,
       itemBuilder: (context, index) {
         final movie = movieList[index];
@@ -138,5 +161,6 @@ class FullMovieList extends GetView<MovieController> {
       },
       separatorBuilder: (context, index) => SizedBox(height: 12.0),
     );
+    }
   }
 }

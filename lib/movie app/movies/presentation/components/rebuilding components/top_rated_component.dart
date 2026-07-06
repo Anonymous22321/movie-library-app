@@ -23,7 +23,7 @@ class TopRatedComponent extends GetView<MovieController> {
           height: 170.0,
           child: Center(
             child: Text(
-              "Something went wrong ${controller.error.value}",
+              "Something went wrong ${controller.errorOccurred()}",
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),
           ),
