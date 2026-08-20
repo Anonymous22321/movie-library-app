@@ -74,7 +74,6 @@ void changeScreen(int index) {
     final result = await _getPopularMoviesUseCase(const NoParameters());
     result.fold((fail) => error.value = fail.errMessage, (success) {
       popularMovies.value = success;
-      print(popularMovies[0]);
     });
     _isLoading.value = false;
   }

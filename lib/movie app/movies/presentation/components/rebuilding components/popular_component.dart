@@ -44,8 +44,8 @@ class PopularComponent extends GetView<MovieController> {
                 return Container(
                   padding: const EdgeInsets.only(right: 8.0),
                   child: InkWell(
-                    onTap: () async{
-                      await controller.fetchMovieDetails(movie.movieId);
+                    onTap: () {
+                      controller.fetchMovieDetails(movie.movieId);
                       Get.to(()=> MovieDetailScreen());
                     },
                     child: ClipRRect(
