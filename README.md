@@ -11,9 +11,9 @@ The Movie Library app fetches real-time movie data from The Movie Database (TMDB
 * **Now Playing & Popular Movies:** Explore up-to-date movie releases and recommendations powered by TMDB API.
 * **Movie Details Screen:** View backdrop images, genres, runtime, ratings, overviews, and similar recommendations.
 * **Push Notifications (FCM):**
-  * **Foreground Alerts:** Displays custom high-priority heads-up banners using `flutter_local_notifications`.
-  * **Background & Terminated State Handling:** Tapping a notification opens the app and directly routes the user to the specific movie details screen.
-  * **Topic Subscriptions:** Broadcast alerts via FCM topics (e.g., `all_users`).
+    * **Foreground Alerts:** Displays custom high-priority heads-up banners using `flutter_local_notifications`.
+    * **Background & Terminated State Handling:** Tapping a notification opens the app and directly routes the user to the specific movie details screen.
+    * **Topic Subscriptions:** Broadcast alerts via FCM topics (e.g., `all_users`).
 * **Reactive UI:** Smooth state updates powered by GetX.
 
 ## 🛠️ Tech Stack & Architecture
@@ -59,4 +59,5 @@ lib/
     │       └── presentation/
     │           ├── controller/           # MovieController & NotificationController
     │           └── screens/              # MovieDetailScreen & UI Components
+    └── main.dart
     └── main.dart

@@ -1,7 +1,7 @@
 
-import '../../movies/domain/entities/genres.dart';
-import '../../movies/domain/entities/movie_details.dart';
-import '../../movies/domain/entities/recommendation.dart';
+import '../../modules/movies/domain/entities/genres.dart';
+import '../../modules/movies/domain/entities/movie_details.dart';
+import '../../modules/movies/domain/entities/recommendation.dart';
 
 MovieDetail movieDetailDummy = const MovieDetail(
   backdropPath: "/nmGWzTLMXy9x7mKd8NKPLmHtWGa.jpg",

@@ -1,26 +1,28 @@
 import 'package:clean_architecture_and_solid_principles/movie%20app/core/api/api_consumer.dart';
 import 'package:clean_architecture_and_solid_principles/movie%20app/core/api/dio_consumer.dart';
-import 'package:clean_architecture_and_solid_principles/movie%20app/movies/data/datasource/movie_remote_data_source.dart';
-import 'package:clean_architecture_and_solid_principles/movie%20app/movies/domain/repository/base_movies_repository.dart';
-import 'package:clean_architecture_and_solid_principles/movie%20app/movies/domain/usecases/get_movie_details.dart';
-import 'package:clean_architecture_and_solid_principles/movie%20app/movies/domain/usecases/get_now_playing_movies.dart';
-import 'package:clean_architecture_and_solid_principles/movie%20app/movies/domain/usecases/get_recommendation.dart';
-import 'package:clean_architecture_and_solid_principles/movie%20app/movies/presentation/controller/movie_controller.dart';
-import 'package:clean_architecture_and_solid_principles/movie%20app/tvs/data/repository/tv_repository.dart';
-import 'package:clean_architecture_and_solid_principles/movie%20app/tvs/domain/usecases/get_tv_details_use_case.dart';
-import 'package:clean_architecture_and_solid_principles/movie%20app/tvs/domain/usecases/popular_use_case.dart';
-import 'package:clean_architecture_and_solid_principles/movie%20app/tvs/domain/usecases/top_rated_use_case.dart';
+import 'package:clean_architecture_and_solid_principles/movie%20app/features/notifications/presentation/controller/notification.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get_it/get_it.dart';
 
-import '../../movies/data/repository/movie_repository.dart';
-import '../../movies/domain/usecases/get_popular_movies.dart';
-import '../../movies/domain/usecases/get_top_rated_movies.dart';
-import '../../tvs/data/datasource/base_tv_remote_datasource.dart';
-import '../../tvs/domain/repository/base_tv_repository.dart';
-import '../../tvs/domain/usecases/get_season_use_case.dart';
-import '../../tvs/domain/usecases/on_the_air_use_case.dart';
-import '../../tvs/domain/usecases/recommendation_use_case.dart';
-import '../../tvs/presentation/controller/tv_controller.dart';
+import '../../modules/movies/data/datasource/movie_remote_data_source.dart';
+import '../../modules/movies/data/repository/movie_repository.dart';
+import '../../modules/movies/domain/repository/base_movies_repository.dart';
+import '../../modules/movies/domain/usecases/get_movie_details.dart';
+import '../../modules/movies/domain/usecases/get_now_playing_movies.dart';
+import '../../modules/movies/domain/usecases/get_popular_movies.dart';
+import '../../modules/movies/domain/usecases/get_recommendation.dart';
+import '../../modules/movies/domain/usecases/get_top_rated_movies.dart';
+import '../../modules/movies/presentation/controller/movie_controller.dart';
+import '../../modules/tvs/data/datasource/base_tv_remote_datasource.dart';
+import '../../modules/tvs/data/repository/tv_repository.dart';
+import '../../modules/tvs/domain/repository/base_tv_repository.dart';
+import '../../modules/tvs/domain/usecases/get_season_use_case.dart';
+import '../../modules/tvs/domain/usecases/get_tv_details_use_case.dart';
+import '../../modules/tvs/domain/usecases/on_the_air_use_case.dart';
+import '../../modules/tvs/domain/usecases/popular_use_case.dart';
+import '../../modules/tvs/domain/usecases/recommendation_use_case.dart';
+import '../../modules/tvs/domain/usecases/top_rated_use_case.dart';
+import '../../modules/tvs/presentation/controller/tv_controller.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -65,7 +67,6 @@ void setupServiceLocator() {
     () => GetSeasonUseCase(getIt<BaseTvRepository>()),
   );
 
-
   /// Repository
   getIt.registerLazySingleton<BaseMoviesRepository>(
     () => MovieRepository(getIt<BaseMovieRemoteDataSource>()),
@@ -87,6 +88,11 @@ void setupServiceLocator() {
   /// Api Consumer
   getIt.registerLazySingleton<ApiConsumer>(() => DioConsumer());
 
+  /// Firebase Messaging
+  getIt.registerLazySingleton<FirebaseMessaging>(
+    () => FirebaseMessaging.instance,
+  );
+
   /// Controller
   getIt.registerFactory<MovieController>(
     () => MovieController(
@@ -106,5 +112,9 @@ void setupServiceLocator() {
       getTvRecommendationsUseCase: getIt<GetTvRecommendationsUseCase>(),
       getSeasonUseCase: getIt<GetSeasonUseCase>(),
     ),
+  );
+  // Exception For notification as notifications are app-wide background services.
+  getIt.registerSingleton<NotificationController>(
+    NotificationController(getIt<FirebaseMessaging>()),
   );
 }

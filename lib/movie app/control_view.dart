@@ -1,6 +1,6 @@
-import 'package:clean_architecture_and_solid_principles/movie%20app/movies/presentation/controller/movie_controller.dart';
-import 'package:clean_architecture_and_solid_principles/movie%20app/movies/presentation/screens/movies_screen.dart';
-import 'package:clean_architecture_and_solid_principles/movie%20app/tvs/presentation/screens/tv_screen.dart';
+import 'package:clean_architecture_and_solid_principles/movie%20app/modules/movies/presentation/controller/movie_controller.dart';
+import 'package:clean_architecture_and_solid_principles/movie%20app/modules/movies/presentation/screens/movies_screen.dart';
+import 'package:clean_architecture_and_solid_principles/movie%20app/modules/tvs/presentation/screens/tv_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
