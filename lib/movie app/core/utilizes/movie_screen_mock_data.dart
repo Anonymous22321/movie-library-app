@@ -1,6 +1,6 @@
 
-import '../../movies/data/models/movie_model.dart';
-import '../../movies/domain/entities/movie.dart';
+import '../../modules/movies/data/models/movie_model.dart';
+import '../../modules/movies/domain/entities/movie.dart';
 
 List<Movie> moviesList = [
   MovieModel(
