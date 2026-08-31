@@ -42,6 +42,9 @@ To test deep-linking into a movie screen via Firebase Console or Postman, send a
 | :--- | :--- | :--- |
 | `movieId` | `969681` | TMDB Movie ID to fetch and display on tap |
 
+## Download early release
+[![Download APK](https://img.shields.io/badge/Download-APK-brightgreen?style=for-the-badge&logo=android)](https://github.com/Anonymous22321/movie-library-app/releases/latest)
+
 ## 📁 Project Structure
 
 ```text
