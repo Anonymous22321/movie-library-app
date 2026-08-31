@@ -63,4 +63,3 @@ lib/
     │           ├── controller/           # MovieController & NotificationController
     │           └── screens/              # MovieDetailScreen & UI Components
     └── main.dart
-    └── main.dart
